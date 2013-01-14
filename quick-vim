@@ -18,30 +18,30 @@ EOF
 TARGET=$PWD
 
 test () {
-  # A=${TARGET}/vim/bundle
-  # B="/Users/studiomohawk/Dropbox/Source/playground/quick-vim/vim/bundle"
-  # if [ "$A" == "$B" ]
-  # then
-  #  echo 'same'
-  # fi
+  A=${TARGET}/vim/bundle
+  B="/Users/studiomohawk/Dropbox/vim/vim/bundle"
+  if [ "$A" == "$B" ]
+  then
+    echo 'same'
+  fi
   # echo 'cd into ${TARGET}'
   # cd ./vim/bundle/
 
-  FILE="./.bundles"
-  while read -r line; do
-    [[ "$line" =~ ^#.*$ ]] && continue
-      REPONAME=$(basename ${line})
-      BUNDLE=$(echo ${REPONAME%.*})
-      if [ -d ./vim/bundle/${BUNDLE} ]
-      then
-        echo -e "${REPONAME} already exsist, skipping..."
-      else
-        cd ./vim/bundle
-        echo ${line}
-        git clone $line
-        cd ../..
-      fi
-  done < "$FILE"
+  #FILE="./.bundles"
+  #while read -r line; do
+  #  [[ "$line" =~ ^#.*$ ]] && continue
+  #    REPONAME=$(basename ${line})
+  #    BUNDLE=$(echo ${REPONAME%.*})
+  #    if [ -d ./vim/bundle/${BUNDLE} ]
+  #    then
+  #      echo -e "${REPONAME} already exsist, skipping..."
+  #    else
+  #      cd ./vim/bundle
+  #      echo ${line}
+  #      git clone $line
+  #      cd ../..
+  #    fi
+  #done < "$FILE"
 }
 
 # copy in pathogen and then clone in bundles

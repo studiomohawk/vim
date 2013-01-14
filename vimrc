@@ -146,11 +146,11 @@
     " current dir
     set statusline+=\ [%{getcwd()}]
     " Git Hotness
-    "set statusline+=\ %{fugitive#statusline()}
+    set statusline+=\ %{fugitive#statusline()}
     " Syntastic
-    "set statusline+=%#warningmsg#
-    "set statusline+=%{SyntasticStatuslineFlag()}
-    "set statusline+=%*
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
 
     " Show file format
     set statusline+=\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\\"}%k
@@ -164,7 +164,7 @@
   set cursorline
   " Color
   " colorscheme base16-default
-  " colorscheme solarized
+  colorscheme solarized
 
   " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
   if &term == 'iterm' || &term == 'screen' || &term == 'term-256color'
@@ -392,36 +392,36 @@
 " Plugins {
 
   " Powerline {
-  "let g:Powerline_symbols = 'fancy'
+  let g:Powerline_symbols = 'fancy'
   " }
 
   " NERDTree  {
   " autocmd vimenter * if !argc() | NERDTree | endif
   " map <Leader>nt :NERDTreeToggle<CR>
-  "map <Leader>nt <plug>NERDTreeTabsToggle<CR>
-  "map <Leader>nf :NERDTreeFind<CR>
-  "let NERDTreeIgnore=['\~$', '\.DS_Store']
-  "let NERDTreeChDirMode=2
-  ""Show hidden files in NerdTree
-  "let NERDTreeShowHidden=1
-  "" Show the bookmarks table on startup
-  "let NERDTreeShowBookmarks=1
-  "" Make NerdTree Pretty
-  "let NERDChristmasTree=1
-  "" Close NerdTree after open
-  "let NERDTreeQuitOnOpen=0
-  "" Store the bookmarks file
-  "let NERDTreeBookmarksFile=expand("$HOME/.vim_local/.NERDTreeBookmarks")
-  "" Highlight the selected entry in the tree
-  "let NERDTreeHighlightCursorline=1
-  "" When switching into a tab, make sure that focus is on the file window
-  "let g:nerdtree_tabs_focus_on_files=1
+  map <Leader>nt <plug>NERDTreeTabsToggle<CR>
+  map <Leader>nf :NERDTreeFind<CR>
+  let NERDTreeIgnore=['\~$', '\.DS_Store']
+  let NERDTreeChDirMode=2
+  "Show hidden files in NerdTree
+  let NERDTreeShowHidden=1
+  " Show the bookmarks table on startup
+  let NERDTreeShowBookmarks=1
+  " Make NerdTree Pretty
+  let NERDChristmasTree=1
+  " Close NerdTree after open
+  let NERDTreeQuitOnOpen=0
+  " Store the bookmarks file
+  let NERDTreeBookmarksFile=expand("$HOME/.vim_local/.NERDTreeBookmarks")
+  " Highlight the selected entry in the tree
+  let NERDTreeHighlightCursorline=1
+  " When switching into a tab, make sure that focus is on the file window
+  let g:nerdtree_tabs_focus_on_files=1
   " }
 
   " supertab {
-  " let g:SuperTabDefaultCompletionType = "context"
-  " let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-  " let g:SuperTabLongestEnhanced = 1
+    let g:SuperTabDefaultCompletionType = "context"
+    let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+    let g:SuperTabLongestEnhanced = 1
 
   hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
   hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
@@ -434,58 +434,59 @@
   inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
   inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
   " and make sure that it doesn't break supertab
-  " let g:SuperTabCrMapping = 0
+  let g:SuperTabCrMapping = 0
   " automatically open and close the popup menu / preview window
   au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
   set completeopt=menu,preview,longest
   " }
 
   " Qfreplace {
-  " nmap <leader>qr :Qfreplace<cr>
+  nmap <leader>qr :Qfreplace<cr>
   " }
 
   " indent-guide {
-  "let g:indent_guides_enable_on_vim_startup = 1
-  "let g:indent_guides_space_guides = 1
+    let g:indent_guides_enable_on_vim_startup = 1
+    let g:indent_guides_space_guides = 1
   " }
 
   " zencoding {
-  "let g:user_zen_expandabbr_key = '<c-e>'
-  "let g:use_zen_complete_tag = 1
+    let g:user_zen_expandabbr_key = '<c-e>'
+    let g:use_zen_complete_tag = 1
+  " }
 
   " CtrlP }
-  "let g:ctrlp_map = '<c-p>'
-  "let g:ctrlp_cmd = 'CtrlPMixed'
-  "let g:ctrlp_working_path_mode = 'ra'
-  "set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.svn/*,*/.git/*
-  "let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn)$'
-  "let g:ctrlp_user_command = 'find %s -type f'
-  "let g:ctrlp_open_new_file = 't'
+  let g:ctrlp_map = '<c-p>'
+  let g:ctrlp_cmd = 'CtrlPMixed'
+  let g:ctrlp_working_path_mode = 'ra'
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.svn/*,*/.git/*
+  let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn)$'
+  let g:ctrlp_user_command = 'find %s -type f'
+  let g:ctrlp_open_new_file = 't'
   " }
 
   " Clam {
-  "nnoremap ! :Clam<space>
-  "vnoremap ! :ClamVisual<space>
+  nnoremap ! :Clam<space>
+  vnoremap ! :ClamVisual<space>
   " }
 
   " Syntastic {
-  "let g:syntastic_enable_signs       = 1
-  "let g:syntastic_auto_loc_list      = 0
-  "let g:syntastic_auto_jump          = 0
-  "let g:syntastic_javascript_checker = 'jshint'
-  "let g:syntastic_csslint_options = "--ignore=adjoining-classes,compatible-vendor-prefixes,display-property-grouping,empty-rules,zero-units,box-model,outline-none"
-  "let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['stylus'] }
+  let g:syntastic_enable_signs       = 1
+  let g:syntastic_auto_loc_list      = 0
+  let g:syntastic_auto_jump          = 0
+  let g:syntastic_javascript_checker = 'jshint'
+  let g:syntastic_csslint_options = "--ignore=adjoining-classes,compatible-vendor-prefixes,display-property-grouping,empty-rules,zero-units,box-model,outline-none"
+  " let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['stylus'] }
   " }
 
   " buffergator {
-  "let g:buffergator_viewport_split_policy = "B"
+  let g:buffergator_viewport_split_policy = "B"
   " }
 
   " Tabularize {
-    "nmap <Leader>a= :Tabularize /=<CR>
-    "vmap <Leader>a= :Tabularize /=<CR>
-    "nmap <Leader>a: :Tabularize /:\zs<CR>
-    "vmap <Leader>a: :Tabularize /:\zs<CR>
+    nmap <Leader>a= :Tabularize /=<CR>
+    vmap <Leader>a= :Tabularize /=<CR>
+    nmap <Leader>a: :Tabularize /:\zs<CR>
+    vmap <Leader>a: :Tabularize /:\zs<CR>
   " }
 
   " vim-pipe {
