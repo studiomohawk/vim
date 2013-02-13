@@ -17,33 +17,6 @@ EOF
 
 TARGET=$PWD
 
-test () {
-  A=${TARGET}/vim/bundle
-  B="/Users/studiomohawk/Dropbox/vim/vim/bundle"
-  if [ "$A" == "$B" ]
-  then
-    echo 'same'
-  fi
-  # echo 'cd into ${TARGET}'
-  # cd ./vim/bundle/
-
-  #FILE="./.bundles"
-  #while read -r line; do
-  #  [[ "$line" =~ ^#.*$ ]] && continue
-  #    REPONAME=$(basename ${line})
-  #    BUNDLE=$(echo ${REPONAME%.*})
-  #    if [ -d ./vim/bundle/${BUNDLE} ]
-  #    then
-  #      echo -e "${REPONAME} already exsist, skipping..."
-  #    else
-  #      cd ./vim/bundle
-  #      echo ${line}
-  #      git clone $line
-  #      cd ../..
-  #    fi
-  #done < "$FILE"
-}
-
 # copy in pathogen and then clone in bundles
 install () {
     # if ./vim/bundle is exist
@@ -75,15 +48,15 @@ install () {
 
 # kills everything, pulls latest from git, installs it
 upgrade () {
-  find ./vim/bundle/ -type d -name .git \
+  find $PWD/vim/bundle -type d -name .git \
   | xargs -n 1 dirname \
   | sort \
-  | while read line; do echo $line && cd $line && git pull; done
+  | while read line; do echo $line && cd $line && git pull origin master && cd ..; done
 }
 
 # fucking cryptic bash, test for a valid arg and execute it if so; otherwise show the help
 if [ "$1" != "" ]; then
-    wl=(install upgrade help test)
+    wl=(install upgrade help)
     for i in "${wl[@]}"
     do
         if [ "$i" == "$1" ]
@@ -91,7 +64,7 @@ if [ "$1" != "" ]; then
             $1
             exit 0
         fi
-    done
+      done
 fi
 
 # show a flailer some help
