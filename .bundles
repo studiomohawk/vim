@@ -2,7 +2,6 @@
 git://github.com/scrooloose/nerdtree.git
 git://github.com/tyok/nerdtree-ack.git
 git://github.com/jistr/vim-nerdtree-tabs.git
-git://github.com/mihaifm/vimpanel.git
 git://github.com/ervandew/supertab.git
 git://github.com/mileszs/ack.vim.git
 git://github.com/thinca/vim-qfreplace.git
@@ -19,13 +18,10 @@ git://github.com/scrooloose/syntastic.git
 git://github.com/tpope/vim-surround.git
 git://github.com/tpope/vim-repeat.git
 git://github.com/krisajenkins/vim-pipe.git
-git://github.com/garbas/vim-snipmate.git
-https://github.com/tomtom/tlib_vim.git
-https://github.com/MarcWeber/vim-addon-mw-utils.git
-https://github.com/honza/snipmate-snippets.git
 git://github.com/gregsexton/MatchTag.git
-git@github.com:davidoc/taskpaper.vim.git
+git://github.com/davidoc/taskpaper.vim.git
 git://github.com/Valloric/YouCompleteMe.git
+git://github.com/vim-scripts/UltiSnips.git
 # PRESENTATION
 git://github.com/nathanaelkane/vim-indent-guides.git
 git://github.com/Lokaltog/vim-powerline.git
