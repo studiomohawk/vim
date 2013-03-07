@@ -226,6 +226,10 @@
   au BufRead,BufNew * match JpSpace /　/
 " }
 
+" Fixing Vim’s indenting of HTML files http://j.mp/ZwcOk2 {
+  autocmd FileType html setlocal indentkeys-=*<Return>
+" }
+
 " Conflict markers {
 " highlight conflict markers
   match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -419,9 +423,9 @@
   " }
 
   " supertab {
-  "  let g:SuperTabDefaultCompletionType = "context"
-  "  let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-  "  let g:SuperTabLongestEnhanced = 1
+  let g:SuperTabDefaultCompletionType = "context"
+  let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+  let g:SuperTabLongestEnhanced = 1
 
   hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
   hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
@@ -434,7 +438,7 @@
   inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
   inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
   " and make sure that it doesn't break supertab
-  " let g:SuperTabCrMapping = 0
+  let g:SuperTabCrMapping = 0
   " automatically open and close the popup menu / preview window
   au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
   set completeopt=menu,preview,longest

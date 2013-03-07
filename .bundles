@@ -20,7 +20,9 @@ git://github.com/tpope/vim-repeat.git
 git://github.com/krisajenkins/vim-pipe.git
 git://github.com/gregsexton/MatchTag.git
 git://github.com/davidoc/taskpaper.vim.git
-git://github.com/Valloric/YouCompleteMe.git
+git://github.com/docunext/closetag.vim.git
+git://github.com/Lokaltog/vim-easymotion.git
+# git://github.com/Valloric/YouCompleteMe.git
 # git://github.com/vim-scripts/UltiSnips.git
 # PRESENTATION
 git://github.com/nathanaelkane/vim-indent-guides.git

@@ -36,7 +36,7 @@ install () {
         BUNDLE=$(echo ${REPONAME%.*})
         if [ -d ./vim/bundle/${BUNDLE} ]
         then
-          echo -e "${REPONAME} already exsist, skipping..."
+          echo -e "${REPONAME} already exsist, git pull it..."
         else
           cd ./vim/bundle
           echo ${line}
@@ -68,5 +68,5 @@ if [ "$1" != "" ]; then
 fi
 
 # show a flailer some help
-help 
+help
 exit 0
