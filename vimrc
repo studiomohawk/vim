@@ -55,13 +55,13 @@
   Bundle 'hail2u/vim-css-syntax'
   Bundle 'othree/html5.vim'
   Bundle 'wavded/vim-stylus'
-  Bundle 'juvenn/mustache.vim'
   Bundle 'nono/vim-handlebars'
   Bundle 'digitaltoad/vim-jade'
   Bundle 'pangloss/vim-javascript'
   Bundle 'miripiruni/vim-better-css-indent'
   Bundle 'myhere/vim-nodejs-complete'
   Bundle 'jelera/vim-javascript-syntax'
+  Bundle 'airblade/vim-gitgutter'
 " }
 
 " General Setting {
