@@ -14,8 +14,54 @@
   set background=dark
   " Manage plugins
   filetype off
-  call pathogen#infect()
-  call pathogen#helptags()
+  set rtp+=~/.vim/bundle/vundle/
+  call vundle#rc()
+
+  " let Vundle manage Vundle
+  " required!
+  Bundle 'gmarik/vundle'
+
+  " My Bundles here:
+  Bundle 'scrooloose/nerdtree'
+  Bundle 'tyok/nerdtree-ack'
+  Bundle 'jistr/vim-nerdtree-tabs'
+  Bundle 'ervandew/supertab'
+  Bundle 'mileszs/ack.vim'
+  Bundle 'thinca/vim-qfreplace'
+  Bundle 'vim-scripts/Buffergator'
+  Bundle 'mattn/zencoding-vim'
+  Bundle 'tpope/vim-fugitive'
+  Bundle 'kien/ctrlp.vim'
+  Bundle 'sjl/clam.vim'
+  Bundle 'scrooloose/nerdcommenter'
+  Bundle 'sickill/vim-pasta'
+  Bundle 'miripiruni/CSScomb-for-Vim'
+  Bundle 'godlygeek/tabular'
+  Bundle 'scrooloose/syntastic'
+  Bundle 'tpope/vim-surround'
+  Bundle 'tpope/vim-repeat'
+  Bundle 'gregsexton/MatchTag'
+  Bundle 'docunext/closetag.vim'
+  Bundle 'hlissner/vim-multiedit'
+  Bundle 'nathanaelkane/vim-indent-guides'
+  Bundle 'Lokaltog/vim-powerline'
+  Bundle 'tsaleh/vim-matchit'
+  Bundle 'altercation/vim-colors-solarized'
+  Bundle 'chriskempson/vim-tomorrow-theme'
+  Bundle 'tpope/vim-markdown'
+  Bundle 'tpope/vim-haml'
+  Bundle 'groenewege/vim-less'
+  Bundle 'hail2u/vim-css3-syntax'
+  Bundle 'hail2u/vim-css-syntax'
+  Bundle 'othree/html5.vim'
+  Bundle 'wavded/vim-stylus'
+  Bundle 'juvenn/mustache.vim'
+  Bundle 'nono/vim-handlebars'
+  Bundle 'digitaltoad/vim-jade'
+  Bundle 'pangloss/vim-javascript'
+  Bundle 'miripiruni/vim-better-css-indent'
+  Bundle 'myhere/vim-nodejs-complete'
+  Bundle 'jelera/vim-javascript-syntax'
 " }
 
 " General Setting {
