@@ -22,6 +22,7 @@
   Bundle 'gmarik/vundle'
 
   " My Bundles here:
+  " Install :BundleInstall / vim +BundleInstall +qall
   Bundle 'scrooloose/nerdtree'
   Bundle 'tyok/nerdtree-ack'
   Bundle 'jistr/vim-nerdtree-tabs'
@@ -42,7 +43,7 @@
   Bundle 'tpope/vim-repeat'
   Bundle 'gregsexton/MatchTag'
   Bundle 'docunext/closetag.vim'
-  Bundle 'hlissner/vim-multiedit'
+  Bundle 'terryma/vim-multiple-cursors'
   Bundle 'nathanaelkane/vim-indent-guides'
   Bundle 'Lokaltog/vim-powerline'
   Bundle 'tsaleh/vim-matchit'
@@ -62,7 +63,13 @@
   Bundle 'myhere/vim-nodejs-complete'
   Bundle 'jelera/vim-javascript-syntax'
   Bundle 'airblade/vim-gitgutter'
-" }
+  Bundle 'editorconfig/editorconfig-vim'
+  Bundle 'davidoc/taskpaper.vim'
+  Bundle 'maksimr/vim-jsbeautify'
+  Bundle 'vim-scripts/TaskList.vim'
+  Bundle 'vim-scripts/prefixer.vim'
+  Bundle 'mikewest/vimroom'
+  " }
 
 " General Setting {
   " Automatically detect file types.
@@ -281,7 +288,7 @@
   match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " shortcut to jump to next conflict marker
-  nnoremap <silent> <leader>c /^\(<\\|=\\|>\)\{7\}\([^=].\+\)\?$<CR>
+  nnoremap <silent> <leader>co /^\(<\\|=\\|>\)\{7\}\([^=].\+\)\?$<CR>
 " }
 
 " Completion {
@@ -347,11 +354,25 @@
   vmap <C-Down> xp`[V`]
   " }
 
+  " Other People's code {
+    nmap \M :set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4<CR>
+    nmap \m :set noexpandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
+    nmap \t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
+    nmap \T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
+  " }
+
   " easier window navigation {
   nmap <C-h> <C-w>h
   nmap <C-j> <C-w>j
   nmap <C-k> <C-w>k
   nmap <C-l> <C-w>l
+  " }
+
+  " Fix arrow keys on terminal {
+  imap <ESC>oA <ESC>ki
+  imap <ESC>oB <ESC>ji
+  imap <ESC>oC <ESC>li
+  imap <ESC>oD <ESC>hi
   " }
 
   " keymap Firefox like tab move {
@@ -517,16 +538,15 @@
   " Clam {
   nnoremap ! :Clam<space>
   vnoremap ! :ClamVisual<space>
+  let g:clam_winpos = 'botright'
   " }
 
   " Syntastic {
-  let g:syntastic_enable_signs       = 1
-  let g:syntastic_auto_loc_list      = 0
-  let g:syntastic_auto_jump          = 0
+  let g:syntastic_enable_signs        = 1
+  let g:syntastic_auto_loc_list       = 0
+  let g:syntastic_auto_jump           = 0
   let g:syntastic_javascript_checker = 'jshint'
-  let g:syntastic_csslint_options = "--ignore=adjoining-classes,compatible-vendor-prefixes,display-property-grouping,empty-rules,zero-units,box-model,outline-none"
-  " let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['stylus'] }
-  " }
+" }
 
   " buffergator {
   let g:buffergator_viewport_split_policy = "B"
@@ -539,8 +559,22 @@
     vmap <Leader>a: :Tabularize /:<CR>
   " }
 
-  " vim-pipe {
-  "nnoremap <silent> <Leader>pi :call VimPipe()<CR>
+  " maksimr/vim-jsbeautify {
+    " for js
+    autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+    " for html
+    autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+    " for css
+    autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+  " }
+
+  " tasklist {
+  map <leader>todo <Plug>TaskList = 'white'
+  " }
+
+  " vimroom {
+  nnoremap <silent> <Leader>mz <Plug>VimroomToggle
+  let g:vimroom_background = 'white'
   " }
 
 " }
