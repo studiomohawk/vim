@@ -59,7 +59,6 @@
   Bundle 'nono/vim-handlebars'
   Bundle 'digitaltoad/vim-jade'
   Bundle 'pangloss/vim-javascript'
-  Bundle 'miripiruni/vim-better-css-indent'
   Bundle 'myhere/vim-nodejs-complete'
   Bundle 'jelera/vim-javascript-syntax'
   Bundle 'airblade/vim-gitgutter'
@@ -68,7 +67,7 @@
   Bundle 'maksimr/vim-jsbeautify'
   Bundle 'vim-scripts/TaskList.vim'
   Bundle 'vim-scripts/prefixer.vim'
-  Bundle 'mikewest/vimroom'
+	Bundle 'Valloric/YouCompleteMe'
   " }
 
 " General Setting {
@@ -281,6 +280,10 @@
 
 " Fixing Vim’s indenting of HTML files http://j.mp/ZwcOk2 {
   autocmd FileType html setlocal indentkeys-=*<Return>
+" }
+
+" Fixing rbenv slowness http://j.mp/161pbYH {
+	let g:ruby_path = system('echo $HOME/.rbenv/shims')
 " }
 
 " Conflict markers {
