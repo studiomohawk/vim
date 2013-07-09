@@ -29,7 +29,6 @@
   Bundle 'ervandew/supertab'
   Bundle 'mileszs/ack.vim'
   Bundle 'thinca/vim-qfreplace'
-  Bundle 'vim-scripts/Buffergator'
   Bundle 'mattn/zencoding-vim'
   Bundle 'tpope/vim-fugitive'
   Bundle 'kien/ctrlp.vim'
@@ -41,15 +40,13 @@
   Bundle 'scrooloose/syntastic'
   Bundle 'tpope/vim-surround'
   Bundle 'tpope/vim-repeat'
-  Bundle 'gregsexton/MatchTag'
-  Bundle 'docunext/closetag.vim'
+  Bundle 'Valloric/MatchTagAlways'
   Bundle 'terryma/vim-multiple-cursors'
-  Bundle 'nathanaelkane/vim-indent-guides'
-  Bundle 'Lokaltog/vim-powerline'
+  Bundle 'Yggdroot/indentLine'
+  Bundle 'bling/vim-airline'
   Bundle 'tsaleh/vim-matchit'
   Bundle 'altercation/vim-colors-solarized'
   Bundle 'chriskempson/vim-tomorrow-theme'
-  Bundle 'tpope/vim-markdown'
   Bundle 'tpope/vim-haml'
   Bundle 'groenewege/vim-less'
   Bundle 'hail2u/vim-css3-syntax'
@@ -61,13 +58,21 @@
   Bundle 'pangloss/vim-javascript'
   Bundle 'myhere/vim-nodejs-complete'
   Bundle 'jelera/vim-javascript-syntax'
-  Bundle 'airblade/vim-gitgutter'
+  Bundle 'pangloss/vim-javascript'
+  Bundle 'Raimondi/delimitMate'
+  Bundle 'mhinz/vim-signify'
   Bundle 'editorconfig/editorconfig-vim'
   Bundle 'davidoc/taskpaper.vim'
   Bundle 'maksimr/vim-jsbeautify'
   Bundle 'vim-scripts/TaskList.vim'
   Bundle 'vim-scripts/prefixer.vim'
-	Bundle 'Valloric/YouCompleteMe'
+  Bundle 'heavenshell/vim-jsdoc'
+  Bundle 'lukerandall/haskellmode-vim'
+  Bundle 'eagletmt/ghcmod-vim'
+  Bundle 'SirVer/ultisnips'
+  Bundle 'honza/vim-snippets'
+  Bundle 'tpope/vim-markdown'
+  Bundle 'sjl/gundo.vim'
   " }
 
 " General Setting {
@@ -86,6 +91,8 @@
   " No beep
   set visualbell
   set noerrorbells
+  " Eliminating delays
+  set timeoutlen=1000 ttimeoutlen=50
   " Set to auto read when a file is changed from the outside
   set autoread
   " No mode line
@@ -460,13 +467,26 @@
   " choose font
   map <F3> <Esc>:set guifont=*<CR>
 
-  " find todo
-  noremap <Leader>ot :noautocmd vimgrep /TODO/j **/*.*<CR>:cw<CR>
-
 " Plugins {
 
-  " Powerline {
-  let g:Powerline_symbols = 'fancy'
+  " Airline {
+  let g:airline_powerline_fonts=0
+  let g:airline_left_sep=''
+  let g:airline_right_sep=''
+  "let g:airline_left_sep = '»'
+  "let g:airline_left_sep = '▶'
+  "let g:airline_right_sep = '«'
+  "let g:airline_right_sep = '◀'
+  let g:airline_linecolumn_prefix = '␊ '
+  let g:airline_linecolumn_prefix = '␤ '
+  let g:airline_linecolumn_prefix = '¶ '
+  let g:airline_fugitive_prefix = '⎇ '
+  let g:airline_paste_symbol = 'ρ'
+  let g:airline_paste_symbol = 'Þ'
+  let g:airline_paste_symbol = '∥'
+
+  let g:airline_enable_fugitive=1
+  let g:airline_enable_syntastic=1
   " }
 
   " NERDTree  {
@@ -492,11 +512,6 @@
   let g:nerdtree_tabs_focus_on_files=1
   " }
 
-  " supertab {
-  let g:SuperTabDefaultCompletionType = "context"
-  let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-  let g:SuperTabLongestEnhanced = 1
-
   hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
   hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
   hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
@@ -507,8 +522,6 @@
   inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
   inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
   inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
-  " and make sure that it doesn't break supertab
-  let g:SuperTabCrMapping = 0
   " automatically open and close the popup menu / preview window
   au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
   set completeopt=menu,preview,longest
@@ -518,9 +531,10 @@
   nmap <leader>qr :Qfreplace<cr>
   " }
 
-  " indent-guide {
-    let g:indent_guides_enable_on_vim_startup = 1
-    let g:indent_guides_space_guides = 1
+  " indentLine {
+  let g:indentLine_char = '│'
+  let g:indentLine_color_gui = '#146984'
+  let g:indentLine_color_term = 239
   " }
 
   " zencoding {
@@ -545,15 +559,11 @@
   " }
 
   " Syntastic {
-  let g:syntastic_enable_signs        = 1
-  let g:syntastic_auto_loc_list       = 0
-  let g:syntastic_auto_jump           = 0
-  let g:syntastic_javascript_checker = 'jshint'
+  let g:syntastic_enable_signs         = 1
+  let g:syntastic_auto_loc_list        = 0
+  let g:syntastic_auto_jump            = 0
+  let g:syntastic_javascript_checkers  = ['jshint']
 " }
-
-  " buffergator {
-  let g:buffergator_viewport_split_policy = "B"
-  " }
 
   " Tabularize {
     nmap <Leader>a= :Tabularize /=<CR>
@@ -575,9 +585,8 @@
   map <leader>todo <Plug>TaskList = 'white'
   " }
 
-  " vimroom {
-  nnoremap <silent> <Leader>mz <Plug>VimroomToggle
-  let g:vimroom_background = 'white'
+  " Gundo {
+  nnoremap <F5> :GundoToggle<CR>
   " }
 
 " }
@@ -636,4 +645,6 @@ endfunction
 nnoremap <Leader>j :call <SID>JumpOccurrence()<CR>
 nnoremap <Leader>p :call <SID>JumpPrompt()<CR>
 
+" Spell Check
+nn <F7> :setlocal spell! spell?<CR>
 " }
