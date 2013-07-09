@@ -42,7 +42,8 @@
   Bundle 'tpope/vim-repeat'
   Bundle 'Valloric/MatchTagAlways'
   Bundle 'terryma/vim-multiple-cursors'
-  Bundle 'Yggdroot/indentLine'
+  " Bundle 'Yggdroot/indentLine'
+  Bundle 'nathanaelkane/vim-indent-guides'
   Bundle 'bling/vim-airline'
   Bundle 'tsaleh/vim-matchit'
   Bundle 'altercation/vim-colors-solarized'
@@ -59,7 +60,6 @@
   Bundle 'myhere/vim-nodejs-complete'
   Bundle 'jelera/vim-javascript-syntax'
   Bundle 'pangloss/vim-javascript'
-  Bundle 'Raimondi/delimitMate'
   Bundle 'mhinz/vim-signify'
   Bundle 'editorconfig/editorconfig-vim'
   Bundle 'davidoc/taskpaper.vim'
@@ -73,6 +73,7 @@
   Bundle 'honza/vim-snippets'
   Bundle 'tpope/vim-markdown'
   Bundle 'sjl/gundo.vim'
+  Bundle 'Raimondi/delimitMate'
   " }
 
 " General Setting {
@@ -532,9 +533,14 @@
   " }
 
   " indentLine {
-  let g:indentLine_char = '│'
-  let g:indentLine_color_gui = '#146984'
-  let g:indentLine_color_term = 239
+  " let g:indentLine_char = '│'
+  " let g:indentLine_color_gui = '#146984'
+  " let g:indentLine_color_term = 239
+  " }
+
+  " indent-guide {
+    let g:indent_guides_enable_on_vim_startup = 1
+    let g:indent_guides_space_guides = 1
   " }
 
   " zencoding {
